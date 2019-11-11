@@ -33,23 +33,30 @@ def yes_or_no(question):
 
 if __name__ == '__main__':
 
-    time.sleep(1)
-    print_slow("What is your name? ", False)
+    time.sleep(1)   
+    print_slow("Hello there! What is your name? ", False)
     name = input()
-    time.sleep(1)
+#    time.sleep(1)
     
-    greeting = "\nHello, {}"
-    comment1 = "\n...interesting..."
-    comment2 = "Do you hear that noise?\n"
-    
+    greeting = "\nIt's nice to meet you, {}!"
+    comment1 = "\nDo you mind if... I ... "
+    comment2 = "\nWait "
+    comment3 = "Do you hear that noise?"
+        
     print_slow(greeting.format(name))
     time.sleep(1)
     print_slow(comment1)
     time.sleep(2)
-    print_slow(comment2)
-    time.sleep(1)
+    print_slow(comment3)
     
     if yes_or_no("What say you?"):
         print_slow("Yeah, me too.    The End")
     else:
         print_slow("Guess your ears are broken.    The End")
+
+    #Save to file
+    path = 'names.txt'
+    names_file = open(path,'w')
+    names_file.write(name)
+    print(name + ", I think I just saved this.")
+    names_file.close()
